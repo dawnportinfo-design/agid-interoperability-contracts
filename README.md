@@ -5,6 +5,8 @@ test vectors for the AGID research repositories.
 
 This repository exists to prevent the main theory repositories from drifting
 apart.
+For grant and public-good review, read
+[`grant-readiness/adoption-readiness.md`](grant-readiness/adoption-readiness.md).
 
 ## Covered Repositories
 
@@ -44,4 +46,3 @@ npm run verify
 ```
 
 Verification is local-only.
-
