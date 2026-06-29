@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agid.example/schemas/interop-vector-v0.1.json",
+  "title": "AGID Interop Test Vector",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "amt", "zk", "postal", "ai", "expectedDecision"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "amt": { "$ref": "amt-envelope.schema.json" },
+    "zk": { "$ref": "zk-proof-request.schema.json" },
+    "postal": { "$ref": "postal-zone.schema.json" },
+    "ai": { "$ref": "address-ai-output.schema.json" },
+    "expectedDecision": {
+      "enum": ["allow", "allow_with_warning", "manual_review", "block", "policy_dependent"]
+    }
+  }
+}
+

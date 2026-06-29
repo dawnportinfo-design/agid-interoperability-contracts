@@ -1,0 +1,17 @@
+flowchart TD
+  Contracts["agid-interoperability-contracts"]
+  AMT["address-morphism-theory"]
+  ZK["zk-address-predicates"]
+  Postal["agid-postal-code-generation-theory"]
+  AI["agid-address-ai-learning-theory"]
+  Apps["AGID apps and country repos"]
+
+  Contracts --> AMT
+  Contracts --> ZK
+  Contracts --> Postal
+  Contracts --> AI
+  AMT --> Apps
+  ZK --> Apps
+  Postal --> Apps
+  AI --> Apps
+

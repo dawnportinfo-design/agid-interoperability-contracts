@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agid.example/schemas/postal-zone-v0.1.json",
+  "title": "Postal Equivalent Zone",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "zoneId", "countryCode", "zoneState", "generationMode", "sourcePolicy"],
+  "properties": {
+    "schemaVersion": { "const": "postal-zone-v0.1" },
+    "zoneId": { "type": "string", "minLength": 1 },
+    "countryCode": { "type": "string", "pattern": "^[A-Z]{2}$" },
+    "zoneState": {
+      "enum": ["official", "postal_equivalent", "redesign_overlay", "virtual_town", "emergency", "deprecated"]
+    },
+    "generationMode": {
+      "enum": ["keep_existing", "redesign_overlay", "generate_postal_equivalent", "virtual_town_overlay", "emergency_repartition"]
+    },
+    "sourcePolicy": { "type": "string", "minLength": 1 }
+  }
+}
+

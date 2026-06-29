@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agid.example/schemas/amt-envelope-v0.1.json",
+  "title": "AMT Envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "referentCommitment",
+    "pidCommitment",
+    "resolutionState",
+    "qualityState",
+    "sourceSetVersion",
+    "lineageRoot",
+    "freshnessRoot",
+    "allowedPredicates"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "amt-envelope-v0.1" },
+    "referentCommitment": { "type": "string", "minLength": 8 },
+    "pidCommitment": { "type": "string", "minLength": 8 },
+    "resolutionState": {
+      "enum": ["verified", "partial", "ambiguous", "unresolved", "rejected", "deprecated", "disputed", "manual_review"]
+    },
+    "qualityState": {
+      "enum": ["verified", "partial", "manual_required"]
+    },
+    "sourceSetVersion": { "type": "string", "minLength": 1 },
+    "lineageRoot": { "type": "string", "minLength": 1 },
+    "freshnessRoot": { "type": "string", "minLength": 1 },
+    "revocationRoot": { "type": "string" },
+    "allowedPredicates": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "region_membership",
+          "quality_threshold",
+          "consent_scope",
+          "freshness",
+          "not_revoked",
+          "delivery_zone_eligibility",
+          "anonymous_rate_limit",
+          "postal_equivalent_membership"
+        ]
+      },
+      "uniqueItems": true
+    }
+  }
+}
+

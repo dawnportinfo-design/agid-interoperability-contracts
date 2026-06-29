@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agid.example/schemas/zk-proof-request-v0.1.json",
+  "title": "ZK Proof Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "policyId", "predicate", "purpose", "requestedAt"],
+  "properties": {
+    "schemaVersion": { "const": "zk-proof-request-v0.1" },
+    "policyId": { "type": "string", "minLength": 1 },
+    "predicate": {
+      "enum": [
+        "region_membership",
+        "quality_threshold",
+        "consent_scope",
+        "freshness",
+        "not_revoked",
+        "delivery_zone_eligibility",
+        "anonymous_rate_limit",
+        "postal_equivalent_membership"
+      ]
+    },
+    "purpose": {
+      "enum": ["delivery", "identity", "hotel_checkin", "locker_pickup", "field_handoff", "audit", "research"]
+    },
+    "requestedAt": { "type": "string", "format": "date-time" }
+  }
+}
+

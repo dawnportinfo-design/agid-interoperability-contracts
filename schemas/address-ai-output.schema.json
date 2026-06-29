@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agid.example/schemas/address-ai-output-v0.1.json",
+  "title": "Address AI Output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "task", "decision", "sourceBacked", "amtState"],
+  "properties": {
+    "schemaVersion": { "const": "address-ai-output-v0.1" },
+    "task": {
+      "enum": [
+        "address-parsing",
+        "normalization",
+        "translation",
+        "completion",
+        "validation",
+        "geocoding",
+        "delivery-optimization",
+        "llm-assistant"
+      ]
+    },
+    "decision": {
+      "enum": ["allow", "allow_with_warning", "manual_review", "block"]
+    },
+    "sourceBacked": { "type": "boolean" },
+    "amtState": {
+      "enum": ["verified", "partial", "ambiguous", "unresolved", "manual_review", "rejected"]
+    }
+  }
+}
+
