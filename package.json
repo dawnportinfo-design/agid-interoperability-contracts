@@ -8,6 +8,7 @@
   "scripts": {
     "test": "tsx --test tests/*.test.ts",
     "verify:schemas": "node scripts/verify-schemas.cjs",
+    "verify:nlnet-readiness": "node scripts/verify-nlnet-readiness.cjs",
     "verify:publication-safety": "node scripts/verify-publication-safety.cjs",
     "verify": "node scripts/verify-all.cjs"
   },
@@ -17,4 +18,3 @@
     "typescript": "^5.9.3"
   }
 }
-

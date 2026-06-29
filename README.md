@@ -7,6 +7,8 @@ This repository exists to prevent the main theory repositories from drifting
 apart.
 For grant and public-good review, read
 [`grant-readiness/adoption-readiness.md`](grant-readiness/adoption-readiness.md).
+For staged NLnet high-tier readiness, read
+[`grant-readiness/nlnet-high-tier-roadmap.md`](grant-readiness/nlnet-high-tier-roadmap.md).
 
 ## Covered Repositories
 

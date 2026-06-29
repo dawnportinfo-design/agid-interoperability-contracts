@@ -1,0 +1,137 @@
+{
+  "schemaVersion": "agid-nlnet-workpackages-v0.1",
+  "strategy": "staged-high-tier-readiness",
+  "firstProposalMaxEur": 50000,
+  "proposalTextPolicy": "applicant-written",
+  "workPackages": [
+    {
+      "id": "wp1-contract-release",
+      "title": "Release AGID interoperability contracts",
+      "phase": "initial",
+      "repos": ["agid-interoperability-contracts"],
+      "deliverables": [
+        "versioned JSON schemas",
+        "TypeScript reference types",
+        "shared interop vectors",
+        "proof obligation matrix",
+        "release tag and changelog"
+      ],
+      "verification": ["npm run verify"],
+      "publicGood": "prevents AMT, ZK, postal, validation, and AI layers from drifting apart",
+      "independentValue": true,
+      "privacyBoundary": "contains no address content or personal delivery artifacts"
+    },
+    {
+      "id": "wp2-no-postcode-demo",
+      "title": "No-postcode AGID to proof-compatible demo",
+      "phase": "initial",
+      "repos": [
+        "agid-interoperability-contracts",
+        "address-morphism-theory",
+        "zk-address-predicates",
+        "agid-address-validation-engine",
+        "agid-postal-code-generation-theory"
+      ],
+      "deliverables": [
+        "postal-equivalent fixture",
+        "validation conformance test",
+        "ZK predicate conformance test",
+        "postal generation conformance test",
+        "demo explanation"
+      ],
+      "verification": ["npm run verify in each repository"],
+      "publicGood": "shows how regions without postal codes can still use open, privacy-preserving address infrastructure",
+      "independentValue": true,
+      "privacyBoundary": "uses commitments, roots, state names, and policy identifiers only"
+    },
+    {
+      "id": "wp3-validation-engine",
+      "title": "Backend-only validation conformance",
+      "phase": "initial-or-follow-up",
+      "repos": ["agid-address-validation-engine"],
+      "deliverables": [
+        "CLI validation command",
+        "synthetic fixtures",
+        "safe public result schema",
+        "country model examples for strong, weak, and missing postal-code regions"
+      ],
+      "verification": ["npm run verify"],
+      "publicGood": "provides a FOSS validation core separate from commercial app code",
+      "independentValue": true,
+      "privacyBoundary": "returns quality state, AGID reference, and postal-equivalent status only"
+    },
+    {
+      "id": "wp4-zk-boundary",
+      "title": "ZK-ready proof boundary",
+      "phase": "follow-up",
+      "repos": ["zk-address-predicates", "agid-ethereum-address-proof-boundary"],
+      "deliverables": [
+        "public-signal safety matrix",
+        "nullifier scope model",
+        "revocation and freshness root model",
+        "Ethereum anchor boundary note",
+        "circuit-readiness checklist"
+      ],
+      "verification": ["npm run verify"],
+      "publicGood": "defines how address predicates can be verified without disclosing address content",
+      "independentValue": true,
+      "privacyBoundary": "does not claim audited circuit security"
+    },
+    {
+      "id": "wp5-amt-formal-core",
+      "title": "Formal Address Morphism Theory core",
+      "phase": "follow-up",
+      "repos": ["address-morphism-theory"],
+      "deliverables": [
+        "formal definitions",
+        "theorem and proof map",
+        "counterexample catalog",
+        "executable model tests",
+        "PDF and web-readable paper artifacts"
+      ],
+      "verification": ["npm run verify"],
+      "publicGood": "turns safe address resolution and abstention into reusable research infrastructure",
+      "independentValue": true,
+      "privacyBoundary": "proof validity cannot upgrade unsafe resolution"
+    },
+    {
+      "id": "wp6-country-governance",
+      "title": "Country and region repository governance",
+      "phase": "follow-up",
+      "repos": ["country-index", "country-template"],
+      "deliverables": [
+        "country index",
+        "single/multi repo classification",
+        "source policy template",
+        "postal status registry",
+        "data license checklist"
+      ],
+      "verification": ["index schema validation", "source policy checks"],
+      "publicGood": "makes global address data maintenance transparent and reusable",
+      "independentValue": true,
+      "privacyBoundary": "stores public region metadata and source policy, not personal address material"
+    },
+    {
+      "id": "wp7-security-review",
+      "title": "Security, privacy, and release hardening",
+      "phase": "later-hardening",
+      "repos": [
+        "agid-interoperability-contracts",
+        "zk-address-predicates",
+        "agid-address-validation-engine"
+      ],
+      "deliverables": [
+        "SECURITY.md",
+        "threat model",
+        "release checklist",
+        "external review preparation",
+        "negative fixtures"
+      ],
+      "verification": ["npm run verify", "publication safety scan"],
+      "publicGood": "turns the prototypes into trustworthy shared infrastructure",
+      "independentValue": true,
+      "privacyBoundary": "focuses on reviewability, not production deployment claims"
+    }
+  ]
+}
+

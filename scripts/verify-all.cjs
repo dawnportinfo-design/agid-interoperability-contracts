@@ -9,6 +9,7 @@ if (!npmCli) {
 const commands = [
   [process.execPath, [npmCli, 'run', 'verify:schemas']],
   [process.execPath, [npmCli, 'run', 'test']],
+  [process.execPath, [npmCli, 'run', 'verify:nlnet-readiness']],
   [process.execPath, [npmCli, 'run', 'verify:publication-safety']],
 ];
 
@@ -18,4 +19,3 @@ for (const [command, args] of commands) {
     process.exit(result.status ?? 1);
   }
 }
-
