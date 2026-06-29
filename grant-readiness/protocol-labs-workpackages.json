@@ -1,0 +1,136 @@
+{
+  "schemaVersion": "agid-protocol-labs-workpackages-v0.1",
+  "strategy": "rfp-open-research-aligned-verifiable-data",
+  "historicRfpAwardRangeUsd": {
+    "min": 5000,
+    "max": 200000,
+    "sourcePolicy": "historic-public-rfp-reference-not-current-ceiling"
+  },
+  "proposalTextPolicy": "applicant-written",
+  "workPackages": [
+    {
+      "id": "pl-wp1-contract-release",
+      "title": "Release AGID interoperability contracts",
+      "phase": "initial",
+      "repos": ["agid-interoperability-contracts"],
+      "deliverables": [
+        "versioned schemas",
+        "shared fixtures",
+        "proof obligation matrix",
+        "release tag",
+        "reproducibility instructions"
+      ],
+      "verification": ["npm run verify"],
+      "publicGood": "gives independent repositories a shared verifiable contract layer",
+      "independentValue": true,
+      "protocolLabsFit": "verifiable data contracts and reproducible public artifacts"
+    },
+    {
+      "id": "pl-wp2-content-addressed-evidence",
+      "title": "Content-addressed evidence and lineage model",
+      "phase": "initial-or-follow-up",
+      "repos": ["agid-interoperability-contracts", "address-morphism-theory"],
+      "deliverables": [
+        "source set hash model",
+        "lineage root profile",
+        "artifact digest policy",
+        "fixture manifest"
+      ],
+      "verification": ["npm run verify"],
+      "publicGood": "makes address evidence provenance inspectable without exposing private content",
+      "independentValue": true,
+      "protocolLabsFit": "content addressing, provenance, and reproducibility"
+    },
+    {
+      "id": "pl-wp3-no-postcode-demo",
+      "title": "No-postcode AGID demo across five repositories",
+      "phase": "initial",
+      "repos": [
+        "address-morphism-theory",
+        "agid-interoperability-contracts",
+        "zk-address-predicates",
+        "agid-address-validation-engine",
+        "agid-postal-code-generation-theory"
+      ],
+      "deliverables": [
+        "shared fixture",
+        "cross-repo tests",
+        "demo explanation",
+        "CI evidence"
+      ],
+      "verification": ["npm run verify in each repository"],
+      "publicGood": "shows how regions without postal codes can use verifiable open address infrastructure",
+      "independentValue": true,
+      "protocolLabsFit": "multi-repository reproducibility"
+    },
+    {
+      "id": "pl-wp4-country-index-governance",
+      "title": "Country and region repository governance",
+      "phase": "follow-up",
+      "repos": ["country-index", "country-template"],
+      "deliverables": [
+        "country index schema",
+        "source policy template",
+        "data license checklist",
+        "single and multi repo classification"
+      ],
+      "verification": ["schema validation", "source policy checks"],
+      "publicGood": "makes global address repository operations auditable and reusable",
+      "independentValue": true,
+      "protocolLabsFit": "open network governance for public datasets"
+    },
+    {
+      "id": "pl-wp5-private-retrieval-boundary",
+      "title": "Private retrieval boundary for address metadata",
+      "phase": "follow-up",
+      "repos": ["zk-address-predicates", "agid-interoperability-contracts"],
+      "deliverables": [
+        "retrieval risk model",
+        "query privacy boundary",
+        "negative fixtures",
+        "non-claim statement"
+      ],
+      "verification": ["npm run verify"],
+      "publicGood": "defines how address metadata lookup can avoid unnecessary disclosure",
+      "independentValue": true,
+      "protocolLabsFit": "privacy-preserving retrieval research"
+    },
+    {
+      "id": "pl-wp6-benchmark-and-reproducibility",
+      "title": "Benchmark and reproducibility pack",
+      "phase": "follow-up",
+      "repos": [
+        "address-morphism-theory",
+        "agid-address-validation-engine",
+        "agid-postal-code-generation-theory"
+      ],
+      "deliverables": [
+        "rights-cleared benchmark fixture",
+        "failure-mode taxonomy",
+        "reproducibility commands",
+        "comparison methodology"
+      ],
+      "verification": ["npm run verify"],
+      "publicGood": "lets researchers compare address-resolution behavior without private data exposure",
+      "independentValue": true,
+      "protocolLabsFit": "open research benchmark infrastructure"
+    },
+    {
+      "id": "pl-wp7-network-collaboration",
+      "title": "Network collaboration package",
+      "phase": "later-collaboration",
+      "repos": ["agid-interoperability-contracts"],
+      "deliverables": [
+        "research collaboration brief",
+        "RFP alignment note",
+        "maintainer map",
+        "open issue labels"
+      ],
+      "verification": ["documentation review", "issue template checks"],
+      "publicGood": "makes collaboration with distributed systems and cryptography researchers practical",
+      "independentValue": true,
+      "protocolLabsFit": "research network collaboration"
+    }
+  ]
+}
+

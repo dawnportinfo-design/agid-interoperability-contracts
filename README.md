@@ -9,6 +9,8 @@ For grant and public-good review, read
 [`grant-readiness/adoption-readiness.md`](grant-readiness/adoption-readiness.md).
 For staged NLnet high-tier readiness, read
 [`grant-readiness/nlnet-high-tier-roadmap.md`](grant-readiness/nlnet-high-tier-roadmap.md).
+For Protocol Labs research/RFP readiness, read
+[`grant-readiness/protocol-labs-high-tier-roadmap.md`](grant-readiness/protocol-labs-high-tier-roadmap.md).
 
 ## Covered Repositories
 
