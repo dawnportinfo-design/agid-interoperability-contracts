@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "agid-proof-obligations-v0.1",
+  "obligations": [
+    {
+      "id": "amt-unique-resolution-before-pid",
+      "layer": "amt",
+      "claim": "PID issuance requires exactly one sufficient referent for the declared purpose.",
+      "requiredInputs": ["candidate-set", "evidence-set", "purpose", "threshold"],
+      "allowedOutcome": "allow",
+      "blockedWhen": ["no-candidate-above-threshold", "multiple-candidates-above-threshold", "fresh-licensed-contradiction"],
+      "verificationStatus": "tested"
+    },
+    {
+      "id": "zk-proof-does-not-upgrade-amt-state",
+      "layer": "zk",
+      "claim": "A proof request cannot turn an unresolved or ambiguous AMT state into a verified purpose result.",
+      "requiredInputs": ["amt-envelope", "predicate", "verifier-policy"],
+      "allowedOutcome": "block",
+      "blockedWhen": ["amt-state-unresolved", "amt-state-rejected", "precise-predicate-on-ambiguous-state"],
+      "verificationStatus": "tested"
+    },
+    {
+      "id": "postal-equivalent-needs-source-policy",
+      "layer": "postal",
+      "claim": "A postal-equivalent zone is usable only with an explicit source policy and generation mode.",
+      "requiredInputs": ["postal-zone", "country-code", "source-policy", "generation-mode"],
+      "allowedOutcome": "allow_with_warning",
+      "blockedWhen": ["missing-source-policy", "deprecated-zone"],
+      "verificationStatus": "documented"
+    },
+    {
+      "id": "ai-output-respects-amt-state",
+      "layer": "ai",
+      "claim": "AI output may suggest, but must not override AMT manual review, ambiguous, or unresolved states.",
+      "requiredInputs": ["task", "amt-state", "source-backed-flag"],
+      "allowedOutcome": "manual_review",
+      "blockedWhen": ["private-content-exposure", "amt-state-unresolved", "amt-state-rejected"],
+      "verificationStatus": "tested"
+    },
+    {
+      "id": "ethereum-anchor-only-public-roots",
+      "layer": "ethereum",
+      "claim": "Ethereum integration may anchor public roots and policy hashes, not address-resolution source material.",
+      "requiredInputs": ["root", "policy-hash", "profile-id", "chain-id"],
+      "allowedOutcome": "allow",
+      "blockedWhen": ["private-content-field", "invalid-root-shape"],
+      "verificationStatus": "planned"
+    }
+  ]
+}
+

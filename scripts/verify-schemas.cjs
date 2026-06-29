@@ -8,6 +8,7 @@ const required = new Set([
   'postal-zone.schema.json',
   'address-ai-output.schema.json',
   'interop-vector.schema.json',
+  'proof-obligation.schema.json',
 ]);
 
 for (const schema of schemas) {
@@ -26,6 +27,9 @@ const vectors = JSON.parse(fs.readFileSync('fixtures/interop-vectors.json', 'utf
 if (!Array.isArray(vectors.vectors) || vectors.vectors.length < 3) {
   throw new Error('Expected at least 3 interop vectors.');
 }
+const obligations = JSON.parse(fs.readFileSync('fixtures/proof-obligations.json', 'utf8'));
+if (!Array.isArray(obligations.obligations) || obligations.obligations.length < 5) {
+  throw new Error('Expected proof obligations for each compatibility layer.');
+}
 
-console.log(`Verified ${schemas.length} schema file(s) and ${vectors.vectors.length} vector(s).`);
-
+console.log(`Verified ${schemas.length} schema file(s), ${vectors.vectors.length} vector(s), and ${obligations.obligations.length} proof obligation(s).`);

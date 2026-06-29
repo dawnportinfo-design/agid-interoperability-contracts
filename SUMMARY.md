@@ -25,6 +25,6 @@ Version `agid-interop-v0.1` defines:
 - postal-zone schema;
 - address AI task output schema;
 - cross-layer interop vector schema;
+- cross-layer proof obligation schema;
 - TypeScript reference model;
 - shared tests.
-

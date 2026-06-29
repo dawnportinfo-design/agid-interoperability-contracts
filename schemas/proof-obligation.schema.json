@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agid.example/schemas/proof-obligation-v0.1.json",
+  "title": "AGID Cross-Layer Proof Obligation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "layer",
+    "claim",
+    "requiredInputs",
+    "allowedOutcome",
+    "blockedWhen",
+    "verificationStatus"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "layer": {
+      "enum": ["amt", "zk", "postal", "ai", "ethereum"]
+    },
+    "claim": { "type": "string", "minLength": 1 },
+    "requiredInputs": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "allowedOutcome": {
+      "enum": ["allow", "allow_with_warning", "manual_review", "block", "policy_dependent"]
+    },
+    "blockedWhen": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "verificationStatus": {
+      "enum": ["tested", "documented", "planned"]
+    }
+  }
+}
+
