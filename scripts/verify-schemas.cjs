@@ -24,8 +24,11 @@ if (required.size > 0) {
 }
 
 const vectors = JSON.parse(fs.readFileSync('fixtures/interop-vectors.json', 'utf8'));
-if (!Array.isArray(vectors.vectors) || vectors.vectors.length < 3) {
-  throw new Error('Expected at least 3 interop vectors.');
+if (!Array.isArray(vectors.vectors) || vectors.vectors.length < 4) {
+  throw new Error('Expected at least 4 interop vectors.');
+}
+if (!vectors.vectors.some((vector) => vector.id === 'no-postcode-agid-to-zk-demo')) {
+  throw new Error('Missing no-postcode AGID-to-ZK demo vector.');
 }
 const obligations = JSON.parse(fs.readFileSync('fixtures/proof-obligations.json', 'utf8'));
 if (!Array.isArray(obligations.obligations) || obligations.obligations.length < 5) {

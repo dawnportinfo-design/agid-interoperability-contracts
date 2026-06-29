@@ -25,3 +25,13 @@ test('unresolved AMT state blocks even when a postal-equivalent fallback exists'
   assert.equal(decideInterop(vector), 'block');
 });
 
+test('no-postcode demo allows AGID postal-equivalent ZK proof path', () => {
+  const vector = fixture.vectors.find((item) => item.id === 'no-postcode-agid-to-zk-demo');
+  assert.ok(vector);
+  assert.equal(vector.postal.countryCode, 'AE');
+  assert.equal(vector.postal.zoneState, 'postal_equivalent');
+  assert.equal(vector.amt.resolutionState, 'verified');
+  assert.equal(vector.ai.decision, 'allow');
+  assert.equal(vector.zk.predicate, 'postal_equivalent_membership');
+  assert.equal(decideInterop(vector), 'allow');
+});

@@ -46,3 +46,10 @@ npm run verify
 ```
 
 Verification is local-only.
+
+## Strong Demo
+
+For a concrete no-postcode-region path, read
+[`demos/no-postcode-agid-postal-zk.md`](demos/no-postcode-agid-postal-zk.md).
+It shows `AGID region -> postal-equivalent zone -> validation output -> ZK proof
+request` using only commitments, roots, policy identifiers, and state names.
